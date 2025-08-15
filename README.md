@@ -8,8 +8,6 @@ Hi! If you want to quickly get a short view of this demo and performance scores,
 ![Home page](public/screenshots/home.png)
 ![Performance page](public/screenshots/performance.png)
 
-> Tip: place your images in `public/screenshots/` with names like `home.png`, `tutorials.png`, `api.png`, `blog.png`.
-
 ### What you'll get
 - **Blog**: Markdown files in `content/blog` rendered as a list and detail pages
 - **Tutorials**: Markdown files in `content/tutorials`
@@ -28,7 +26,6 @@ Hi! If you want to quickly get a short view of this demo and performance scores,
   nvm install --lts
   nvm use --lts
   ```
-- **npm** comes with Node. (You can also use pnpm/yarn if you prefer.)
 
 ## Quick start
 ```bash
