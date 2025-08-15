@@ -1,0 +1,25 @@
+{
+  "name": "nuxt-app",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "build:startup": "BRANDING=startup nuxt build",
+    "dev": "nuxt dev",
+    "dev:startup": "BRANDING=startup nuxt dev",
+    "generate": "nuxt generate",
+    "generate:startup": "BRANDING=startup nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/content": "^3.6.3",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "better-sqlite3": "^12.2.0",
+    "gray-matter": "^4.0.3",
+    "marked": "^16.1.2",
+    "nuxt": "^4.0.3",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1"
+  }
+}
