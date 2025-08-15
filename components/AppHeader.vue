@@ -9,14 +9,14 @@
     <div class="max-w-7xl mx-auto">
       <div class="flex justify-between items-center">
         <!-- Logo/Title -->
-        <div class="flex items-center space-x-3">
+        <NuxtLink to="/" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
           <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
             <span :style="{ color: branding.primaryColor }" class="text-xl font-bold">{{ branding.logo }}</span>
           </div>
           <h1 class="text-2xl font-bold">
             {{ branding.name }}
           </h1>
-        </div>
+        </NuxtLink>
         
         <!-- Navigation Tabs -->
         <nav class="flex space-x-4">

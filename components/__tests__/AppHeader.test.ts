@@ -37,17 +37,20 @@ describe('AppHeader', () => {
 
     // Check if all navigation links exist - look for elements with to attributes
     const links = wrapper.findAll('[to]')
-    expect(links).toHaveLength(3)
+    expect(links).toHaveLength(4) // 3 nav links + 1 home link
 
     // Check link texts and to props
-    expect(links[0]?.text()).toBe('API Docs')
-    expect(links[0]?.attributes('to')).toBe('/api')
+    expect(links[0]?.text()).toContain('DP')
+    expect(links[0]?.attributes('to')).toBe('/')
 
-    expect(links[1]?.text()).toBe('Tutorials')
-    expect(links[1]?.attributes('to')).toBe('/tutorials')
+    expect(links[1]?.text()).toBe('API Docs')
+    expect(links[1]?.attributes('to')).toBe('/api')
 
-    expect(links[2]?.text()).toBe('Blog')
-    expect(links[2]?.attributes('to')).toBe('/blog')
+    expect(links[2]?.text()).toBe('Tutorials')
+    expect(links[2]?.attributes('to')).toBe('/tutorials')
+
+    expect(links[3]?.text()).toBe('Blog')
+    expect(links[3]?.attributes('to')).toBe('/blog')
   })
 
   it('applies primary color to logo text', () => {
@@ -84,11 +87,27 @@ describe('AppHeader', () => {
     // Check each link has proper styling
     const links = wrapper.findAll('[to]')
     links.forEach(link => {
-      expect(link.classes()).toContain('px-4')
-      expect(link.classes()).toContain('py-2')
-      expect(link.classes()).toContain('rounded-lg')
-      expect(link.classes()).toContain('hover:bg-white/20')
-      expect(link.classes()).toContain('transition-colors')
+      if (link.attributes('to') !== '/') {
+        // Only check nav links, not the home link
+        expect(link.classes()).toContain('px-4')
+        expect(link.classes()).toContain('py-2')
+        expect(link.classes()).toContain('rounded-lg')
+        expect(link.classes()).toContain('hover:bg-white/20')
+        expect(link.classes()).toContain('transition-colors')
+      }
     })
+  })
+
+  it('makes logo and title clickable to home page', () => {
+    const wrapper = mount(AppHeader)
+    
+    // Find the home link (logo + title)
+    const homeLink = wrapper.find('[to="/"]')
+    
+    expect(homeLink.exists()).toBe(true)
+    expect(homeLink.text()).toContain('DP')
+    expect(homeLink.text()).toContain('Documentation Platform')
+    expect(homeLink.classes()).toContain('hover:opacity-80')
+    expect(homeLink.classes()).toContain('transition-opacity')
   })
 })

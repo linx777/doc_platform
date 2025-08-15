@@ -25,7 +25,7 @@
 ## Quick start
 ```bash
 # 1) Clone the repo
-git clone <your-fork-or-repo-url>
+git clone git@github.com:linx777/doc_platform.git
 
 # 2) Go to the app
 cd doc_platform
