@@ -1,8 +1,15 @@
 ## Documentation Platform (Nuxt 4)
 
+Hi! If you want to quickly get a short view of this demo and performance scores, please check this video:
+[📹 Demo & Performance Overview](https://www.loom.com/share/de38f3950883464290ccbfef29122a4b?sid=89d8c272-9bb9-4257-aa2c-786c45615db2)
 
+### Screenshots
 
-### What you’ll get
+![Home page](public/screenshots/home.png)
+
+> Tip: place your images in `public/screenshots/` with names like `home.png`, `tutorials.png`, `api.png`, `blog.png`.
+
+### What you'll get
 - **Blog**: Markdown files in `content/blog` rendered as a list and detail pages
 - **Tutorials**: Markdown files in `content/tutorials`
 - **API Docs**: Swagger UI at `/api` loading spec from `public/api/api-specification.json`
