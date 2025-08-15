@@ -6,6 +6,7 @@ Hi! If you want to quickly get a short view of this demo and performance scores,
 ### Screenshots
 
 ![Home page](public/screenshots/home.png)
+![Performance page](public/screenshots/performance.png)
 
 > Tip: place your images in `public/screenshots/` with names like `home.png`, `tutorials.png`, `api.png`, `blog.png`.
 
