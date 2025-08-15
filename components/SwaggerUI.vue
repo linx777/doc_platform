@@ -43,5 +43,17 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* Fixed dimensions to prevent layout shift */
+#swagger-ui {
+  min-height: 600px;
+  width: 100%;
+  /* Prevent content from changing container size */
+  contain: layout style paint;
+}
 
+/* Ensure Swagger UI content doesn't cause layout shift */
+:deep(.swagger-ui) {
+  min-height: 600px;
+  width: 100%;
+}
 </style>

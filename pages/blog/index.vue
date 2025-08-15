@@ -72,7 +72,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import type { ContentItem } from '~/types/content'
+import { useRouter } from 'vue-router'
+import type { ContentItem } from '../../types/content'
 
 // API and navigation constants
 const API_ENDPOINT = '/api/blog'
@@ -88,6 +89,7 @@ const READ_ACTION_TEXT = 'Read Blog →'
 // Reactive state
 const blogs = ref<ContentItem[]>([])
 const loading = ref(true)
+const router = useRouter()
 
 onMounted(async () => {
   try {
@@ -104,6 +106,6 @@ onMounted(async () => {
 })
 
 function viewBlog(slug: string) {
-  window.location.href = `${BASE_ROUTE}/${slug}`
+  router.push(`${BASE_ROUTE}/${slug}`)
 }
 </script>

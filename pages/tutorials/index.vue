@@ -72,7 +72,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import type { ContentItem } from '~/types/content'
+import type { ContentItem } from '../../types/content'
+import { useRouter } from 'vue-router'
 
 // API and navigation constants
 const API_ENDPOINT = '/api/tutorials'
@@ -88,6 +89,7 @@ const READ_ACTION_TEXT = 'Read Tutorial →'
 // Reactive state
 const tutorials = ref<ContentItem[]>([])
 const loading = ref(true)
+const router = useRouter()
 
 onMounted(async () => {
   try {
@@ -104,6 +106,6 @@ onMounted(async () => {
 })
 
 function viewTutorial(slug: string) {
-  window.location.href = `${BASE_ROUTE}/${slug}`
+  router.push(`${BASE_ROUTE}/${slug}`)
 }
 </script>
