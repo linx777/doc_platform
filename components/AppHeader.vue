@@ -1,6 +1,6 @@
 <template>
   <header 
-    class="p-4" 
+    class="p-4 sticky top-0 z-50 shadow-sm" 
     :style="{ 
       backgroundColor: branding.headerBgColor, 
       color: branding.headerTextColor 

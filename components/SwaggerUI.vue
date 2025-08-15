@@ -6,29 +6,21 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import 'swagger-ui-dist/swagger-ui.css'
+import { SwaggerUIBundle, SwaggerUIStandalonePreset } from 'swagger-ui-dist'
 
 const props = defineProps<{
   specUrl: string
 }>()
 
 onMounted(() => {
-  // Load Swagger UI dynamically
-  const script = document.createElement('script')
-  script.src = 'https://unpkg.com/swagger-ui-dist@5.9.0/swagger-ui-bundle.js'
-  script.onload = () => {
-    // Load CSS
-    const link = document.createElement('link')
-    link.rel = 'stylesheet'
-    link.href = 'https://unpkg.com/swagger-ui-dist@5.9.0/swagger-ui.css'
-    document.head.appendChild(link)
-    
-    // Initialize Swagger UI
-    const ui = (window as any).SwaggerUIBundle({
+  try {
+    const ui = SwaggerUIBundle({
       url: props.specUrl,
       dom_id: '#swagger-ui',
       presets: [
-        (window as any).SwaggerUIBundle.presets.apis,
-        (window as any).SwaggerUIStandalonePreset
+        SwaggerUIBundle.presets.apis,
+        SwaggerUIStandalonePreset
       ],
       deepLinking: true,
       showExtensions: true,
@@ -37,23 +29,16 @@ onMounted(() => {
       filter: true,
       tryItOutEnabled: true
     })
+  } catch (error) {
+    console.error('Failed to initialize Swagger UI:', error)
   }
-  document.head.appendChild(script)
 })
 </script>
 
 <style scoped>
-/* Fixed dimensions to prevent layout shift */
+/* Ensure Swagger UI container is properly sized */
 #swagger-ui {
-  min-height: 600px;
-  width: 100%;
-  /* Prevent content from changing container size */
-  contain: layout style paint;
-}
-
-/* Ensure Swagger UI content doesn't cause layout shift */
-:deep(.swagger-ui) {
-  min-height: 600px;
+  min-height: 400px;
   width: 100%;
 }
 </style>

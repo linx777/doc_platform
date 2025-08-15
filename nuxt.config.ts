@@ -6,9 +6,18 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/content'
   ],
+  nitro: {
+    // Ensure content directory is accessible in production
+    publicAssets: [
+      {
+        baseURL: '/',
+        dir: 'content',
+      }
+    ]
+  },
   runtimeConfig: {
     public: {
-      branding: 'startup'
+      branding: 'default'
     }
   },
 })
