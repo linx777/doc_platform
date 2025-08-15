@@ -42,7 +42,12 @@ npm install
 
 # 4) Start the dev server (default branding)
 npm run dev
+
+# 5) Use the production preview to validate features and run Lighthouse locally.
+npm run build
+npm run preview
 ```
+> Tip: close any running `npm run dev` first to avoid port conflicts.
 
 Open `http://localhost:3000` in your browser.
 
@@ -85,15 +90,8 @@ Restart the dev server after changing this value.
 - `branding.config.ts`: Theme presets used by the header and UI
 - `nuxt.config.ts`: Nuxt setup and default `branding`
 
-## Preview the production build (recommended for performance checks)
-Use the production preview to validate features and run Lighthouse locally.
-```bash
-npm run build
-npm run preview
-```
-Then open the printed local URL (usually `http://localhost:3000`).
 
-> Tip: close any running `npm run dev` first to avoid port conflicts.
+
 
 ## Run tests
 Run the unit tests with Vitest:
