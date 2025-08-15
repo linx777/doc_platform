@@ -85,6 +85,30 @@ Restart the dev server after changing this value.
 - `branding.config.ts`: Theme presets used by the header and UI
 - `nuxt.config.ts`: Nuxt setup and default `branding`
 
+## Preview the production build (recommended for performance checks)
+Use the production preview to validate features and run Lighthouse locally.
+```bash
+npm run build
+npm run preview
+```
+Then open the printed local URL (usually `http://localhost:3000`).
+
+> Tip: close any running `npm run dev` first to avoid port conflicts.
+
+## Run tests
+Run the unit tests with Vitest:
+```bash
+# Headless run (CI-style)
+npm run test:run
+
+# Watch/UI modes (optional)
+npm run test        # interactive watch
+npm run test:ui     # Vitest UI
+
+# Coverage (optional)
+npm run test:coverage
+```
+
 ## Working with content (Markdown)
 Add new files under `content/blog` or `content/tutorials`. Frontmatter is optional but recommended:
 ```md
@@ -106,13 +130,6 @@ Write your markdown content here. Headings, lists, and code blocks are supported
 - Visit `http://localhost:3000/api` to view the Swagger UI.
 - The UI loads the spec from `public/api/api-specification.json`.
 - Update that file to change the docs. You can copy from `content/api/api-specification.json` if needed.
-
-## Build for production
-```bash
-npm run build
-npm run preview
-```
-Then open the printed local URL to preview the production build.
 
 ## Troubleshooting
 - **Port already in use**: Stop the process using port 3000 or run with `PORT=3001 npm run dev`.
